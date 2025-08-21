@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen, Users, GraduationCap } from "lucide-react";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -36,7 +38,10 @@ export const Navigation = () => {
               <Users className="w-4 h-4 mr-2" />
               Teacher Login
             </Button>
-            <Button className="bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300">
+            <Button 
+              onClick={() => navigate('/student-dashboard')}
+              className="bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300"
+            >
               <GraduationCap className="w-4 h-4 mr-2" />
               Student Login
             </Button>
@@ -85,7 +90,13 @@ export const Navigation = () => {
                   <Users className="w-4 h-4 mr-2" />
                   Teacher Login
                 </Button>
-                <Button className="w-full bg-gradient-primary text-primary-foreground">
+                <Button 
+                  onClick={() => {
+                    navigate('/student-dashboard');
+                    setIsOpen(false);
+                  }}
+                  className="w-full bg-gradient-primary text-primary-foreground"
+                >
                   <GraduationCap className="w-4 h-4 mr-2" />
                   Student Login
                 </Button>
