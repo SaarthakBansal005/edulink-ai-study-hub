@@ -36,7 +36,11 @@ export const Navigation = () => {
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <ThemeToggle />
-            <Button variant="ghost" className="text-foreground hover:text-primary">
+            <Button 
+              variant="ghost" 
+              className="text-foreground hover:text-primary"
+              onClick={() => navigate('/teacher-login')}
+            >
               <Users className="w-4 h-4 mr-2" />
               Teacher Login
             </Button>
@@ -91,7 +95,14 @@ export const Navigation = () => {
                 <div className="flex justify-center pb-2">
                   <ThemeToggle />
                 </div>
-                <Button variant="ghost" className="w-full justify-start">
+                <Button 
+                  variant="ghost" 
+                  className="w-full justify-start"
+                  onClick={() => {
+                    navigate('/teacher-login');
+                    setIsOpen(false);
+                  }}
+                >
                   <Users className="w-4 h-4 mr-2" />
                   Teacher Login
                 </Button>
