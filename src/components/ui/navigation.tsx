@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { Menu, X, BookOpen, Users, GraduationCap } from "lucide-react";
 
 export const Navigation = () => {
@@ -34,12 +35,13 @@ export const Navigation = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
+            <ThemeToggle />
             <Button variant="ghost" className="text-foreground hover:text-primary">
               <Users className="w-4 h-4 mr-2" />
               Teacher Login
             </Button>
             <Button 
-              onClick={() => navigate('/student-dashboard')}
+              onClick={() => navigate('/student-login')}
               className="bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300"
             >
               <GraduationCap className="w-4 h-4 mr-2" />
@@ -86,13 +88,16 @@ export const Navigation = () => {
                 Contact
               </a>
               <div className="pt-4 pb-2 space-y-2">
+                <div className="flex justify-center pb-2">
+                  <ThemeToggle />
+                </div>
                 <Button variant="ghost" className="w-full justify-start">
                   <Users className="w-4 h-4 mr-2" />
                   Teacher Login
                 </Button>
                 <Button 
                   onClick={() => {
-                    navigate('/student-dashboard');
+                    navigate('/student-login');
                     setIsOpen(false);
                   }}
                   className="w-full bg-gradient-primary text-primary-foreground"
